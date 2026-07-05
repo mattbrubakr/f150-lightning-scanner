@@ -56,9 +56,12 @@ pip3 install -r requirements.txt
 playwright install chromium
 ```
 
-This installs the Python libraries and downloads a headless browser (Chromium) that the scanner uses to load JavaScript-heavy pages. The Chromium download is about 150 MB and only happens once.
-
 If `pip3` isn't found, try `pip` instead.
+
+The scanner uses two browser engines:
+
+- **Playwright** (installed above) handles most sources. `playwright install chromium` downloads the browser it needs (~150 MB, one time only).
+- **nodriver** handles AutoTrader and Visor. It uses your system **Google Chrome** installation rather than Playwright's browser. If you don't have Chrome installed, download it from [google.com/chrome](https://www.google.com/chrome/) before running the scanner.
 
 ### 4. Configure your search
 
