@@ -4,6 +4,9 @@ from scanner.config import log, STATE_FILE, TODAY
 
 
 def load_state() -> dict:
+    if not STATE_FILE.exists():
+        log.info("No state file found -- starting fresh.")
+        return {"listings": {}, "meta": {}}
     data = json.loads(STATE_FILE.read_text())
     data.setdefault("listings", {})
     data.setdefault("meta", {})
